@@ -28,7 +28,7 @@ class ViTVMPNet(nn.Module):
         self.to(self.device)
 
     def forward(self, image: torch.Tensor) -> torch.Tensor:
-        processed_image = self.image_processor(image, return_tensors="pt", device=self.device)
+        processed_image = self.image_processor(image, return_tensors="pt").to(self.device)
         image_features = self.feature_extraction_model(**processed_image).pooler_output.squeeze().detach()
         actions = self.action_extractor(image_features).cpu()
         return actions
