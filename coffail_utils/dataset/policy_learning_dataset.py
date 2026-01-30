@@ -7,9 +7,9 @@ from coffail_utils.dataset.mongo_dataset import MongoDataset
 
 class PolicyLearningDataset(MongoDataset):
     def __init__(self, robot_name, observation_keys, skill_name=''):
-        super(PolicyMongoDataset, self).__init__(robot_name=robot_name,
-                                                 observation_keys=observation_keys,
-                                                 skill_name=skill_name)
+        super(PolicyLearningDataset, self).__init__(robot_name=robot_name,
+                                                    observation_keys=observation_keys,
+                                                    skill_name=skill_name)
 
     def get_next_item(self):
         for collection_name in self.data_collection_names:
